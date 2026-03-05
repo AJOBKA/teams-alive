@@ -5,6 +5,8 @@
 ; ============================================================
 
 Unicode True
+RequestExecutionLevel admin
+SetCompressor     lzma
 
 !define APP_NAME      "TeamsAlive"
 !define APP_VERSION   "1.0"
@@ -37,8 +39,6 @@ Name              "${APP_NAME} ${APP_VERSION}"
 OutFile           "TeamsAlive-Setup.exe"
 InstallDir        "${INSTALL_DIR}"
 InstallDirRegKey  HKLM "${REG_KEY}" "InstallLocation"
-RequestExecutionLevel admin
-SetCompressor     lzma
 BrandingText      "${APP_NAME} ${APP_VERSION}"
 
 Section "Main Application" SecMain

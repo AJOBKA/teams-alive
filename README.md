@@ -1,6 +1,19 @@
-# 🟦 TeamsAlive
+# 🟦 TeamsAlive v1.1
 
-Keep Microsoft Teams, Slack, Zoom (or any app) showing you as **Active** by nudging the mouse **1 px right → 1 px back** every 60 seconds — completely invisibly.
+**Stay active. Stay seen. Stay sane.**
+
+TeamsAlive is a lightweight, open-source utility designed for remote workers who need to step away from their desks without their status flipping to "Away." It works with **Microsoft Teams, Slack, Zoom,** and any other application that tracks your idle time.
+
+---
+
+## ✨ Why TeamsAlive?
+
+* **Take a real break:** Step away to grab a coffee or clear your head before the next task without being "status-shamed."
+* **Relentless work ethic:** Impress your boss with your unwavering availability, even when you're focusing on off-screen tasks.
+* **Privacy First:** * 🛡️ **100% Open Source:** Inspect the code yourself.
+    * 🚫 **No Viruses:** Built with clean Python libraries.
+    * 📭 **No Telemetry:** No tracking, no data collection, no background pings.
+* **Invisible Operation:** Nudges your mouse by 1px and back every 60 seconds. It won't interrupt your typing, clicking, or gaming.
 
 ---
 

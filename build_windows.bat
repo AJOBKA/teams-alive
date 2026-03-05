@@ -50,18 +50,26 @@ python -m PyInstaller ^
 if errorlevel 1 ( echo  [ERROR] PyInstaller failed & pause & exit /b 1 )
 echo  [OK] dist\TeamsAliveWin.exe created
 
-:: ── 4. NSIS installer (optional – skip if makensis not found) ─
-where makensis >nul 2>&1
+:: ── 4. NSIS installer (Look in PATH then common install folders) ─────
+set MAKENSIS_BIN=makensis
+where %MAKENSIS_BIN% >nul 2>&1
 if errorlevel 1 (
-    echo  [SKIP] NSIS not found – skipping installer. Get it at https://nsis.sourceforge.io
-    echo         The standalone dist\TeamsAliveWin.exe is still fully usable without an installer.
-    goto :done
+    if exist "C:\Program Files (x86)\NSIS\makensis.exe" (
+        set MAKENSIS_BIN="C:\Program Files (x86)\NSIS\makensis.exe"
+    ) else (
+        echo  [SKIP] NSIS not found – skipping installer. 
+        echo         If you just installed it, restart your PC.
+        goto :done
+    )
 )
 
 echo  [..] Building NSIS installer...
-makensis installer.nsi
-if errorlevel 1 ( echo  [WARN] NSIS build failed – EXE still available in dist\ )
-echo  [OK] TeamsAliveWin-Setup.exe created
+%MAKENSIS_BIN% installer.nsi
+if errorlevel 1 ( 
+    echo  [WARN] NSIS build failed – check installer.nsi for errors.
+) else (
+    echo  [OK] TeamsAliveWin-Setup.exe created
+)
 
 :done
 echo.
