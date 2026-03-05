@@ -1,5 +1,7 @@
 # 🟦 TeamsAlive v1.1
 
+![TeamsAlive Banner](https://repository-images.githubusercontent.com/1173517485/6b8e2d66-026d-44bc-a7b3-c0561f5c3dc4)
+
 **Stay active. Stay seen. Stay sane.**
 
 TeamsAlive is a lightweight, open-source utility designed for remote workers who need to step away from their desks without their status flipping to "Away." It works with **Microsoft Teams, Slack, Zoom,** and any other application that tracks your idle time.
