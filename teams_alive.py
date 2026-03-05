@@ -1,6 +1,6 @@
 """
 TeamsAlive - Keep Microsoft Teams active with minimal mouse movements.
-Moves the mouse by 1px and back every 60 seconds.
+Moves the mouse by 2px and back every 60 seconds + Use F15.
 """
 
 import sys
@@ -15,9 +15,7 @@ from PIL import Image, ImageTk
 
 # ── Helper for PyInstaller Paths ─────────────────────────────────────────────
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
         base_path = os.path.abspath(".")
@@ -38,14 +36,21 @@ try:
 except ImportError:
     MOUSE_AVAILABLE = False
 
-INTERVAL = 60
-APP_NAME = "TeamsAlive"
+# ── ADJUSTED FOR PERSONAL TEAMS & WINDOWS IDLE ───────────────────────────────
+INTERVAL = 60  # Faster heartbeat (60 seconds)
 
 def _nudge():
     if MOUSE_AVAILABLE:
-        pyautogui.moveRel(1, 0, duration=0.1)
-        time.sleep(0.15)
-        pyautogui.moveRel(-1, 0, duration=0.1)
+        # 1. Use F15 - It resets the idle timer but doesn't affect typing
+        pyautogui.press('f15')
+        
+        # 2. Get current position to ensure we don't drift
+        curr_x, curr_y = pyautogui.position()
+        
+        # 3. Perform a 'Jitter' (Move 2px and back instantly)
+        # We use moveTo to be more forceful than moveRel
+        pyautogui.moveTo(curr_x + 2, curr_y)
+        pyautogui.moveTo(curr_x, curr_y)
 
 # ── Worker Thread ────────────────────────────────────────────────────────────
 class Worker(threading.Thread):
@@ -87,15 +92,12 @@ class App(tk.Tk):
                 ctypes.windll.shcore.SetProcessDpiAwareness(1)
             except: pass
 
-        # ── Load Icons ───────────────────────────────────────────────────────
         self.ico_file = resource_path("icon.ico")
-        self.png_file = resource_path("icon.png") # Used for UI and Tray
+        self.png_file = resource_path("icon.png")
 
         try:
             if os.path.exists(self.ico_file):
                 self.iconbitmap(self.ico_file)
-            
-            # Load PNG version for the internal UI elements
             if os.path.exists(self.png_file):
                 self.img_main = Image.open(self.png_file)
         except Exception as e:
@@ -126,7 +128,6 @@ class App(tk.Tk):
         header = tk.Frame(self, bg=self.SURFACE, height=64)
         header.pack(fill="x")
 
-        # Header Icon
         if os.path.exists(self.png_file):
             try:
                 hdr_img = self.img_main.resize((36, 36), Image.LANCZOS)
@@ -164,15 +165,11 @@ class App(tk.Tk):
         else:
             tk.Label(cell, text=value, font=("Segoe UI", 13, "bold"), bg=self.SURFACE, fg=self.TEXT).pack()
 
-    # ── Tray Management ──────────────────────────────────────────────────────
     def _make_tray_image(self, active=False):
         if not os.path.exists(self.png_file):
-            return Image.new('RGB', (64, 64), color=(255, 0, 0)) # Fallback
-        
+            return Image.new('RGB', (64, 64), color=(255, 0, 0))
         img = Image.open(self.png_file).convert("RGBA")
-        if not active:
-            # Desaturate/Grey out when idle
-            return img.convert("LA").convert("RGBA")
+        if not active: return img.convert("LA").convert("RGBA")
         return img
 
     def _setup_tray(self):
@@ -223,4 +220,5 @@ class App(tk.Tk):
         self.destroy()
 
 if __name__ == "__main__":
+    APP_NAME = "TeamsAlive"
     App().mainloop()
